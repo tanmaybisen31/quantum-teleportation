@@ -6,7 +6,7 @@ A hands-on set of Jupyter notebooks that build up the fundamentals of quantum co
 
 ## Overview
 
-This is a learning project. It works through the basic building blocks of gate-model quantum computing and then uses them to implement quantum teleportation — the protocol that transfers an unknown single-qubit state from one qubit to another using a shared Bell pair and two classical bits.
+This is a learning project. It works through the basic building blocks of gate-model quantum computing and then uses them to implement quantum teleportation. The protocol transfers an unknown single-qubit state from one qubit to another using a shared Bell pair and two classical bits.
 
 The teleportation notebook follows the standard textbook construction: prepare a Bell pair, have "Alice" entangle the state qubit with her half of the pair (`CX` then `H`), measure her two qubits, and have "Bob" recover the state by applying `X` and/or `Z` corrections conditioned on those classical measurement results. State transfer is verified visually by comparing the input and output states on the Bloch sphere.
 
@@ -15,7 +15,7 @@ The teleportation notebook follows the standard textbook construction: prepare a
 | Notebook | What it covers |
 | --- | --- |
 | `building_block.ipynb` | Single-qubit basics: the `X` gate, statevector / unitary / QASM simulators, and reading out a measurement. |
-| `HelloWorld.ipynb` | A first 2-qubit circuit — `H` + `CX` to make a Bell state, then measurement, histogram, and Bloch/Q-sphere views. |
+| `HelloWorld.ipynb` | A first 2-qubit circuit: `H` + `CX` to make a Bell state, then measurement, histogram, and Bloch/Q-sphere views. |
 | `entanglement.ipynb` | Bell-state entanglement run on both the `qasm_simulator` and a real IBM Quantum backend (`ibmq_belem`). |
 | `visualization.ipynb` | Bloch-sphere and Q-sphere visualizations of single-qubit states (`\|0⟩`, `X\|0⟩`, `H\|1⟩`). |
 | `teleportation.ipynb` | The full teleportation protocol, step by step, teleporting a random single-qubit statevector using `c_if` conditional corrections. |
@@ -43,7 +43,7 @@ pip install "qiskit==0.35.0" qiskit-aer matplotlib jupyter
 jupyter notebook
 ```
 
-Open any notebook and run the cells top to bottom. The pure-simulator cells run offline. The cells that call `IBMQ.load_account()` — and especially `entanglement.ipynb`, which submits a job to `ibmq_belem` — require a (free) IBM Quantum account and a saved API token.
+Open any notebook and run the cells top to bottom. The pure-simulator cells run offline. The cells that call `IBMQ.load_account()` need a (free) IBM Quantum account and a saved API token. That is especially true of `entanglement.ipynb`, which submits a job to `ibmq_belem`.
 
 ## Scope and limitations
 
